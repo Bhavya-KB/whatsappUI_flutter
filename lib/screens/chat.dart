@@ -1,6 +1,8 @@
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/datas/chatdatas.dart';
+import 'package:whatsapp/screens/camera.dart';
 
 
 class ChatScreen extends StatefulWidget {
@@ -33,12 +35,13 @@ class _ChatScreenState extends State<ChatScreen> {
             Row(children: [
               IconButton(
                   icon: const Icon(Icons.camera_alt_rounded),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ()),
-                    );
+                  onPressed: () async {
+                   await availableCameras().then(
+  (value) => Navigator.push(
+    context, MaterialPageRoute(
+    builder: (_) => CameraPage(cameras: value))
+  ),
+);
               
                   }),
               const SizedBox(
