@@ -6,7 +6,7 @@ class Chatdatas extends StatelessWidget {
   final String time;
   final String leadingImageAsset;
 
-  const Chatdatas({
+  const Chatdatas({super.key, 
     required this.name,
     required this.lastMessage,
     required this.time,
@@ -28,7 +28,7 @@ class Chatdatas extends StatelessWidget {
         ),
       ),
       subtitle: Row(children: [
-        Icon(Icons.done_all_outlined),
+        const Icon(Icons.done_all_outlined),
         Text(
           lastMessage,
           style:const TextStyle(
@@ -38,7 +38,7 @@ class Chatdatas extends StatelessWidget {
       ]),
       trailing: Text(
         time,
-        style: TextStyle(fontSize: 9),
+        style: const TextStyle(fontSize: 9),
       ),
     );
   }

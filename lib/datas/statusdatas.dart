@@ -5,7 +5,7 @@ class SingleStatusItem extends StatelessWidget {
   final String statusTime;
   final String statusImage;
 
-  const SingleStatusItem({
+  const SingleStatusItem({super.key, 
     required this.statusTitle,
     required this.statusTime,
     required this.statusImage,
@@ -29,7 +29,7 @@ class SingleStatusItem extends StatelessWidget {
           child: ListTile(
             title: Text('statusTitle'),
             subtitle: Padding(
-              padding: const EdgeInsets.only(top: 2.0),
+              padding:  EdgeInsets.only(top: 2.0),
               child: Text('statusTime'),
             ),
           ),

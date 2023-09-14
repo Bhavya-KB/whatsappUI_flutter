@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/datas/statusdatas.dart';
 
 class StatusScreen extends StatefulWidget {
   const StatusScreen({super.key});
@@ -38,8 +37,9 @@ class _StatusScreenState extends State<StatusScreen> {
               PopupMenuButton<String>(itemBuilder: (BuildContext context) {
                 return const [
                   PopupMenuItem(
-                      child: Text("Status privacy"), value: "Status privacy"),
-                  PopupMenuItem(child: Text("Settings"), value: "Settings"),
+                      value: "Status privacy",
+                      child: Text("Status privacy")),
+                  PopupMenuItem(value: "Settings", child: Text("Settings")),
                 ];
               }),
             ]),
@@ -185,7 +185,7 @@ class _StatusScreenState extends State<StatusScreen> {
         ),
         FloatingActionButton(
           onPressed: () {},
-          backgroundColor: Color.fromARGB(255, 0, 128, 105),
+          backgroundColor: const Color.fromARGB(255, 0, 128, 105),
           child: const Icon(
             Icons.camera_alt_rounded,
           ),

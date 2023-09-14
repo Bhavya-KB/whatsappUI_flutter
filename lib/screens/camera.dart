@@ -4,92 +4,56 @@ import 'package:camera/camera.dart';
 import 'package:torch_light/torch_light.dart';
 
 class CameraPage extends StatefulWidget {
+  final List<CameraDescription> cameras;
   const CameraPage({
     Key? key,
     required this.cameras,
   }) : super(key: key);
 
-  final List<CameraDescription>? cameras;
+ 
 
   @override
-  State<CameraPage> createState() => _CameraPageState();
+  _CameraPageState createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<CameraPage> {
-  late CameraController _cameraController;
-  bool _isRearCameraSelected = true;
-  bool _isFlashOn = false; // Track the flashlight state
+   late CameraController _cameraController;
+  late int _selectedCameraIndex;
+  late bool _isFlashOn;
 
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  
   @override
   void initState() {
     super.initState();
-    initCamera(widget.cameras![0]);
-  }
+    _selectedCameraIndex = 0; // Initialize with the rear camera
+    _isFlashOn = false; // Initialize with flash off
 
-  Future<void> initCamera(CameraDescription cameraDescription) async {
-    _cameraController =
-        CameraController(cameraDescription, ResolutionPreset.high);
-    try {
-      await _cameraController.initialize().then((_) {
-        if (!mounted) return;
-        setState(() {});
-      });
-    } on CameraException catch (e) {
-      debugPrint("camera error $e");
-    }
-  }
+    // Initialize the camera controller
+    _cameraController = CameraController(
+      widget.cameras[_selectedCameraIndex],
+      ResolutionPreset.medium,
+    );
 
-  Future<void> _toggleFlashlight() async {
-    try {
-      if (_isFlashOn) {
-        await TorchLight.disableTorch();
-      } else {
-        bool isCameraInUse = await _isCameraInUse();
-
-        if (!isCameraInUse) {
-          await TorchLight.enableTorch();
-        } else {
-          // Handle the case where the camera is in use
-          // You can show a message to the user or take appropriate action
-          // For example, display a snackbar asking the user to close other camera apps.
-          // _scaffoldKey.currentState!.showSnackBar(
-          //   SnackBar(
-          //     content: Text('Close any other camera apps and try again.'),
-          //     duration: Duration(seconds: 3),
-          //   ),
-          // );
-        }
+    // Initialize the camera controller and set flash mode
+    _cameraController.initialize().then((_) {
+      if (!mounted) {
+        return;
       }
-      setState(() {
-        _isFlashOn = !_isFlashOn;
-      });
-    } catch (e) {
-      debugPrint("flashlight error $e");
-    }
+      setState(() {});
+    });
   }
 
-  // Function to check if the camera is in use
-  Future<bool> _isCameraInUse() async {
-    final cameras = await availableCameras();
-    for (final camera in cameras) {
-      final controller = CameraController(camera, ResolutionPreset.high);
-      try {
-        await controller.initialize();
-        controller.dispose();
-      } catch (e) {
-        // If initializing the camera fails, it's likely in use
-        return true;
-      }
-    }
-    return false;
+@override
+  void dispose() {
+    _cameraController.dispose();
+    super.dispose();
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey, // Set the scaffold key for showing the snackbar
+   
       body: SafeArea(
         child: Stack(
           children: [

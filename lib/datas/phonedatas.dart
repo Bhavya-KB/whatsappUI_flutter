@@ -7,7 +7,7 @@ class Calls extends StatelessWidget {
   final String leadingImageAsset;
   final String callType;
 
-  const Calls({
+  const Calls({super.key, 
     required this.chatMessage,
     required this.chatTitle,
     required this.callStatus,
@@ -25,7 +25,7 @@ class Calls extends StatelessWidget {
             backgroundImage: AssetImage(leadingImageAsset),
           ),
           title:
-              Text('$chatTitle', style: TextStyle(fontWeight: FontWeight.w600)),
+              Text(chatTitle, style: const TextStyle(fontWeight: FontWeight.w600)),
           subtitle: Row(children: [
             Icon(
               callStatus == 'Incoming'
@@ -38,7 +38,7 @@ class Calls extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(left: 6.0),
                 child: Text(
-                  '$chatMessage',
+                  chatMessage,
                   style: const TextStyle(overflow: TextOverflow.ellipsis),
                 ),
               ),

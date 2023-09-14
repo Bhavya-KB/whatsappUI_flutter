@@ -35,7 +35,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
               ),
               PopupMenuButton<String>(itemBuilder: (BuildContext context) {
                 return const [
-                  PopupMenuItem(child: Text("Settings"), value: "Settings"),
+                  PopupMenuItem(value: "Settings", child: Text("Settings")),
                 ];
               }),
             ]),

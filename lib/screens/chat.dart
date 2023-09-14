@@ -17,9 +17,9 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 0, 128, 105),
+        backgroundColor: const Color.fromARGB(255, 0, 128, 105),
         onPressed: () {},
-        child: Icon(Icons.chat, color: Colors.white),
+        child: const Icon(Icons.chat, color: Colors.white),
       ),
       appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 0, 128, 105),
@@ -55,16 +55,18 @@ class _ChatScreenState extends State<ChatScreen> {
               // IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
               PopupMenuButton<String>(itemBuilder: (BuildContext context) {
                 return const [
-                  PopupMenuItem(child: Text("New group"), value: "New group"),
+                  PopupMenuItem(value: "New group", child: Text("New group")),
                   PopupMenuItem(
-                      child: Text("New broadcast"), value: "New broadcast"),
+                      value: "New broadcast",
+                      child: Text("New broadcast")),
                   PopupMenuItem(
-                      child: Text("Linked devices"), value: "Linked devices"),
+                      value: "Linked devices",
+                      child: Text("Linked devices")),
                   PopupMenuItem(
-                      child: Text("Starred Messages"),
-                      value: "Starred Messages"),
-                  PopupMenuItem(child: Text("Payments"), value: "Payments"),
-                  PopupMenuItem(child: Text("Settings"), value: "Settings"),
+                      value: "Starred Messages",
+                      child: Text("Starred Messages")),
+                  PopupMenuItem(value: "Payments", child: Text("Payments")),
+                  PopupMenuItem(value: "Settings", child: Text("Settings")),
                 ];
               }),
             ]),

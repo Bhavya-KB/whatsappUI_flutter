@@ -48,10 +48,10 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: <Widget>[
-        ChatScreen(),
-        StatusScreen(),
-        CommunityScreen(),
-        PhoneScreen(),
+        const ChatScreen(),
+        const StatusScreen(),
+        const CommunityScreen(),
+        const PhoneScreen(),
       ][currentPageIndex],
     );
   }

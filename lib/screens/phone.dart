@@ -13,9 +13,9 @@ class _PhoneScreen extends State<PhoneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 0, 128, 105),
+        backgroundColor: const Color.fromARGB(255, 0, 128, 105),
         onPressed: () {},
-        child: Icon(Icons.add_call, color: Colors.white),
+        child: const Icon(Icons.add_call, color: Colors.white),
       ),
       appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 0, 128, 105),
@@ -42,8 +42,9 @@ class _PhoneScreen extends State<PhoneScreen> {
               PopupMenuButton<String>(itemBuilder: (BuildContext context) {
                 return const [
                   PopupMenuItem(
-                      child: Text("Clear call log"), value: "Clear call log"),
-                  PopupMenuItem(child: Text("Settings"), value: "Settings"),
+                      value: "Clear call log",
+                      child: Text("Clear call log")),
+                  PopupMenuItem(value: "Settings", child: Text("Settings")),
                 ];
               }),
             ]),

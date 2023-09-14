@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 class CameraPage extends StatefulWidget {
   final List<CameraDescription> cameras;
 
-  CameraPage({required this.cameras});
+  const CameraPage({super.key, required this.cameras});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CameraPageState createState() => _CameraPageState();
 }
 
@@ -50,7 +51,7 @@ class _CameraPageState extends State<CameraPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Camera'),
+        title: const Text('Camera'),
         actions: [
           IconButton(
             icon: Icon(
@@ -60,7 +61,7 @@ class _CameraPageState extends State<CameraPage> {
             onPressed: _toggleFlash,
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.switch_camera,
               color: Colors.white,
             ),
