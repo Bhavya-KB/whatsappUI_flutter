@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:torch_light/torch_light.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -10,18 +8,15 @@ class CameraPage extends StatefulWidget {
     required this.cameras,
   }) : super(key: key);
 
- 
-
   @override
   _CameraPageState createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<CameraPage> {
-   late CameraController _cameraController;
+  late CameraController _cameraController;
   late int _selectedCameraIndex;
   late bool _isFlashOn;
 
-  
   @override
   void initState() {
     super.initState();
@@ -43,70 +38,66 @@ class _CameraPageState extends State<CameraPage> {
     });
   }
 
-@override
+  @override
   void dispose() {
     _cameraController.dispose();
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            (_cameraController.value.isInitialized)
-                ? CameraPreview(_cameraController)
-                : Container(
-                    color: Colors.black,
-                    child: const Center(child: CircularProgressIndicator())),
+            CameraPreview(_cameraController),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.20,
                 decoration: const BoxDecoration(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(24)),
+                    // borderRadius:
+                    //     BorderRadius.vertical(top: Radius.circular(25)),
                     color: Colors.black),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        iconSize: 30,
-                        icon: Icon(
-                            _isRearCameraSelected
-                                ? CupertinoIcons.switch_camera
-                                : CupertinoIcons.switch_camera_solid,
-                            color: Colors.white),
-                        onPressed: () {
-                          setState(() =>
-                              _isRearCameraSelected = !_isRearCameraSelected);
-                          initCamera(
-                              widget.cameras![_isRearCameraSelected ? 0 : 1]);
-                        },
-                      ),
-                    ),
-                    Expanded(
-                      child: IconButton(
-                        onPressed: () {},
-                        iconSize: 50,
-                        padding: EdgeInsets.zero,
-                        constraints: const BoxConstraints(),
-                        icon: const Icon(Icons.circle, color: Colors.white),
-                      ),
-                    ),
+                    // Expanded(
+                    //   child: IconButton(
+                    //     icon: Icon(
+                    //       _isFlashOn ? Icons.flash_on : Icons.flash_off,
+                    //       color: Colors.white,
+                    //     ),
+                    //     color: Colors.white,
+                    //     onPressed: _toggleFlashlight,
+                    //   ),
+                    // ),
                     Expanded(
                       child: IconButton(
                         icon: Icon(
                           _isFlashOn ? Icons.flash_on : Icons.flash_off,
                           color: Colors.white,
                         ),
-                        color: Colors.white,
-                        onPressed: _toggleFlashlight,
+                        onPressed: _toggleFlash,
+                      ),
+                    ),
+
+                    Expanded(
+                      child: IconButton(
+                        onPressed: () {},
+                        iconSize: 50,
+                        padding: EdgeInsets.zero,
+                        icon: const Icon(Icons.circle, color: Colors.white),
+                      ),
+                    ),
+
+                    Expanded(
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.switch_camera,
+                          color: Colors.white,
+                        ),
+                        onPressed: _switchCamera,
                       ),
                     ),
                   ],
@@ -119,9 +110,36 @@ class _CameraPageState extends State<CameraPage> {
     );
   }
 
-  @override
-  void dispose() {
-    _cameraController.dispose();
-    super.dispose();
+  void _toggleFlash() {
+    setState(() {
+      _isFlashOn = !_isFlashOn;
+      _cameraController.setFlashMode(
+        _isFlashOn ? FlashMode.torch : FlashMode.off,
+      );
+    });
+  }
+
+  void _switchCamera() async {
+    final newCameraIndex = (_selectedCameraIndex + 1) % widget.cameras.length;
+
+    // Dispose of the old camera controller
+    await _cameraController.dispose();
+
+    setState(() {
+      _selectedCameraIndex = newCameraIndex;
+    });
+
+    // Initialize a new camera controller and set flash mode
+    _cameraController = CameraController(
+      widget.cameras[_selectedCameraIndex],
+      ResolutionPreset.medium,
+    );
+
+    // Initialize the new camera controller
+    await _cameraController.initialize();
+
+    if (mounted) {
+      setState(() {});
+    }
   }
 }
