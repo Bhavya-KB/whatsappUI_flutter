@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -100,6 +101,16 @@ class _CameraPageState extends State<CameraPage> {
                         onPressed: _switchCamera,
                       ),
                     ),
+                    Expanded(
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.photo,
+                          color: Colors.white,
+                        ),
+                        onPressed:
+                            _openGallery, 
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -108,6 +119,16 @@ class _CameraPageState extends State<CameraPage> {
         ),
       ),
     );
+  }
+
+  Future<void> _openGallery() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      // Do something with the picked image (e.g., display it or process it).
+      // You can use pickedFile.path to get the file path of the selected image.
+    }
   }
 
   void _toggleFlash() {
