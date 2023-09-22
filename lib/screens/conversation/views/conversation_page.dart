@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ChatRoomScreen extends StatefulWidget {
+class ConversationScreen extends StatefulWidget {
   final String name;
   final String img;
-  ChatRoomScreen({required this.name, required this.img});
+  const ConversationScreen({super.key, required this.name, required this.img});
 
   @override
-  State<ChatRoomScreen> createState() => _ChatRoomScreenState();
+  State<ConversationScreen> createState() => _ConversationScreenState();
 }
 
-class _ChatRoomScreenState extends State<ChatRoomScreen> {
+class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +19,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
         title: Row(
           children: [
@@ -31,14 +31,14 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                 : Container(
                     height: 36,
                     width: 36,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
-                    child: Icon(Icons.account_circle,
+                    child: const Icon(Icons.account_circle,
                         size: 36, color: Colors.grey),
                   ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
             Column(
@@ -46,14 +46,12 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
               children: [
                 Text(
                   widget.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                   ),
                 ),
                  ],
             ),
-            
-
           ],
         ),
       ),

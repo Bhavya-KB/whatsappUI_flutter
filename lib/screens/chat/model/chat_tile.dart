@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:whatsapp/screens/chat room.dart';
+import 'package:whatsapp/screens/conversation/views/conversation_page.dart';
 
 class ChatTile extends StatelessWidget {
   final String name;
@@ -8,8 +7,8 @@ class ChatTile extends StatelessWidget {
   final String msg;
   final String time;
 
-  ChatTile(
-      {required this.name,
+  const ChatTile(
+      {super.key, required this.name,
       required this.img,
       required this.msg,
       required this.time});
@@ -20,19 +19,19 @@ class ChatTile extends StatelessWidget {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: ((context) => ChatRoomScreen(
+              builder: ((context) => ConversationScreen(
                     name: name,
                     img: img,
                   )))),
       leading: img != null
           ? Padding(
-              padding: EdgeInsets.only(right: 8.0),
+              padding: const EdgeInsets.only(right: 8.0),
               child: CircleAvatar(
                 radius: 30,
                 backgroundImage: AssetImage(img),
               ),
             )
-          : Padding(
+          : const Padding(
               padding: EdgeInsets.only(
                 right: 8.0,
               ),
@@ -42,21 +41,21 @@ class ChatTile extends StatelessWidget {
       horizontalTitleGap: 5,
       trailing: Text(
         time,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.grey,
           fontSize: 12,
         ),
       ),
       title: Text(
         name,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 20,
           color: Colors.black,
         ),
       ),
       subtitle: Text(
         msg,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 13,
           color: Colors.grey,
         ),

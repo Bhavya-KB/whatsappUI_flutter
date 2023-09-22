@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/components/status%20tile.dart';
+import 'package:whatsapp/screens/status/model/status_tile.dart';
 
 class StatusScreen extends StatefulWidget {
   const StatusScreen({super.key});

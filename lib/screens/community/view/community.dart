@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/components/community%20tile.dart';
+import 'package:whatsapp/screens/community/model/community_tile.dart';
 
 class CommunityScreen extends StatefulWidget {
   const CommunityScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/datas/phonedatas.dart';
+import 'package:whatsapp/old/phonedatas.dart';
 
 class PhoneScreen extends StatefulWidget {
   const PhoneScreen({super.key});

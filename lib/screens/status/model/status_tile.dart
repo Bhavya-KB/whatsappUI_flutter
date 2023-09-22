@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/datas/whatsappdatas.dart';
+import 'package:whatsapp/controller/whatsappdatas.dart';
 
 Data data = Data();
 
-class CommunityTile extends StatelessWidget {
+class StatusTile extends StatelessWidget {
+  const StatusTile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -21,15 +23,18 @@ class CommunityTile extends StatelessWidget {
               ),
             ),
             title: Text(
-              data.communitylist.values.elementAt(index).elementAt(0),
-              style: TextStyle(fontSize: 20),
+              data.statuslist.values.elementAt(index).elementAt(0),
+              style: const TextStyle(fontSize: 20),
+            ),
+            subtitle: Text(
+              data.statuslist.values.elementAt(index).elementAt(2),
             ),
           );
         },
         separatorBuilder: (context, index) {
           return Container();
         },
-        itemCount: data.communitylist.length,
+        itemCount: data.statuslist.length,
       ),
     );
   }

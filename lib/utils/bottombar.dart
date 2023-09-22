@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/chat.dart';
-import 'package:whatsapp/screens/community.dart';
-import 'package:whatsapp/screens/phone.dart';
-import 'package:whatsapp/screens/status.dart';
+import 'package:whatsapp/screens/chat/view/chat.dart';
+import 'package:whatsapp/screens/community/view/community.dart';
+import 'package:whatsapp/screens/call/view/phone.dart';
+import 'package:whatsapp/screens/status/view/status.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class BottomBar extends StatefulWidget {
+  const BottomBar({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<BottomBar> createState() => _BottomBarState();
 }
 
-class _HomeState extends State<Home> {
+class _BottomBarState extends State<BottomBar> {
   int currentPageIndex = 0;
 
   @override
