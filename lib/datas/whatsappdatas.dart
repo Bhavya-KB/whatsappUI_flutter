@@ -61,4 +61,33 @@ class Data {
       '11:45 am',
     ],
   };
+
+  var statuslist = {
+    0: [
+      'Anju',
+      'assets/pictures/personimage3.jpg',
+      '7 minutes ago',
+    ],
+    1: [
+      'Meena',
+      'assets/pictures/personimage5.jpg',
+      '9:20 am',
+    ],
+    2: [
+      'Rita',
+      'assets/pictures/personimage3.jpg',
+      '1:30 pm',
+    ]
+  };
+
+  var communitylist = {
+    0: [
+      'college',
+      'assets/pictures/peoplegroup.jpg',
+    ],
+  };
+
+
+
+
 }
