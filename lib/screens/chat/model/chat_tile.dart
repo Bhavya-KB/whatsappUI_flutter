@@ -8,7 +8,8 @@ class ChatTile extends StatelessWidget {
   final String time;
 
   const ChatTile(
-      {super.key, required this.name,
+      {super.key,
+      required this.name,
       required this.img,
       required this.msg,
       required this.time});

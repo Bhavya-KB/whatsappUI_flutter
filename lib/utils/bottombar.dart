@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/call/view/calls.dart';
 import 'package:whatsapp/screens/chat/view/chat.dart';
 import 'package:whatsapp/screens/community/view/community.dart';
-import 'package:whatsapp/screens/call/view/phone.dart';
+
 import 'package:whatsapp/screens/status/view/status.dart';
 
 class BottomBar extends StatefulWidget {

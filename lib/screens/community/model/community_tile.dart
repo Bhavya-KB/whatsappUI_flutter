@@ -16,7 +16,7 @@ class CommunityTile extends StatelessWidget {
               child: CircleAvatar(
                 radius: 30,
                 backgroundImage: AssetImage(
-                  data.statuslist.values.elementAt(index).elementAt(1),
+                  data.communitylist.values.elementAt(index).elementAt(1),
                 ),
               ),
             ),
