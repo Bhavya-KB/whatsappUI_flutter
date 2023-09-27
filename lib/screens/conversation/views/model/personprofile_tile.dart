@@ -21,6 +21,7 @@ class Profile extends StatelessWidget {
               builder: ((context) => persondetails(
                     name: name,
                     img: img,
+                    phoneNumber:phoneNumber,
                   )))),
       leading: img != null
           ? Padding(

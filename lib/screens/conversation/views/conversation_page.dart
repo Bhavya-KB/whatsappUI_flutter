@@ -11,7 +11,12 @@ Data data = Data();
 class ConversationScreen extends StatefulWidget {
   final String name;
   final String img;
-  const ConversationScreen({super.key, required this.name, required this.img});
+  final String phoneNumber;
+  const ConversationScreen(
+      {super.key,
+      required this.name,
+      required this.img,
+      required this.phoneNumber});
 
   @override
   State<ConversationScreen> createState() => _ConversationScreenState();
@@ -37,6 +42,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                   builder: ((context) => persondetails(
                         name: widget.name,
                         img: widget.img,
+                        phoneNumber: widget.phoneNumber,
                       )))),
           child: Row(
             children: [

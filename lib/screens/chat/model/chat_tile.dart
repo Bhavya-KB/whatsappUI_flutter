@@ -6,13 +6,15 @@ class ChatTile extends StatelessWidget {
   final String img;
   final String msg;
   final String time;
+  final String phoneNumber;
 
   const ChatTile(
       {super.key,
       required this.name,
       required this.img,
       required this.msg,
-      required this.time});
+      required this.time,
+      required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,9 @@ class ChatTile extends StatelessWidget {
               builder: ((context) => ConversationScreen(
                     name: name,
                     img: img,
+                    phoneNumber: phoneNumber,
+
+
                   )))),
       leading: img != null
           ? Padding(
