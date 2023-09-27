@@ -23,13 +23,13 @@ class _persondetailsState extends State<persondetails> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back,
               color: Color.fromARGB(255, 121, 120, 120),
               size: 30,
             ),
           ),
-          title: Center(
+          title: const Center(
               child: Row(
             children: [],
           )),
@@ -66,7 +66,7 @@ class _persondetailsState extends State<persondetails> {
           ]),
       body: SingleChildScrollView(
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
 
@@ -98,7 +98,7 @@ class _persondetailsState extends State<persondetails> {
             backgroundImage: AssetImage(widget.img),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -106,11 +106,11 @@ class _persondetailsState extends State<persondetails> {
             width: MediaQuery.of(context).size.width * 1.0,
             child: Text(
               widget.name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.red,
             ),
@@ -118,7 +118,7 @@ class _persondetailsState extends State<persondetails> {
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.blue,
             ),
@@ -130,11 +130,11 @@ class _persondetailsState extends State<persondetails> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Colors.white,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.call,
                   color: Color.fromARGB(255, 0, 128, 105),
                   size: 30,
@@ -143,11 +143,11 @@ class _persondetailsState extends State<persondetails> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Colors.white,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.video_call_rounded,
                   color: Color.fromARGB(255, 0, 128, 105),
                   size: 30,
@@ -156,11 +156,11 @@ class _persondetailsState extends State<persondetails> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Colors.white,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.currency_rupee,
                   color: Color.fromARGB(255, 0, 128, 105),
                   size: 30,
@@ -169,11 +169,11 @@ class _persondetailsState extends State<persondetails> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width * 0.2,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.rectangle,
                   color: Colors.white,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.search,
                   color: Color.fromARGB(255, 0, 128, 105),
                   size: 30,
@@ -184,7 +184,7 @@ class _persondetailsState extends State<persondetails> {
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.yellow,
             ),
@@ -192,7 +192,7 @@ class _persondetailsState extends State<persondetails> {
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.cyan,
             ),
@@ -200,7 +200,7 @@ class _persondetailsState extends State<persondetails> {
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.indigo,
             ),
@@ -208,7 +208,7 @@ class _persondetailsState extends State<persondetails> {
           Container(
             height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               color: Colors.deepOrangeAccent,
             ),

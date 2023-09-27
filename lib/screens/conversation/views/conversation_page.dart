@@ -75,13 +75,13 @@ class _ConversationScreenState extends State<ConversationScreen> {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.video_camera_back_rounded,
                 size: 20,
               )),
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.call,
                 size: 20,
               )),
@@ -102,7 +102,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/pictures/backgroundimage.jpg'),
               fit: BoxFit.fill),
@@ -129,7 +129,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(
+                    margin: const EdgeInsets.only(
                       left: 8.0,
                       top: 9.0,
                       bottom: 8.0,
@@ -137,11 +137,11 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     ),
                     width: MediaQuery.of(context).size.width * 0.75,
                     height: MediaQuery.of(context).size.width * 0.15,
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       right: 10,
                       left: 5,
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -150,19 +150,19 @@ class _ConversationScreenState extends State<ConversationScreen> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.emoji_emotions_outlined,
                             color: Colors.grey,
                             size: 30,
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 3.0),
+                            margin: const EdgeInsets.only(top: 3.0),
                             width: MediaQuery.of(context).size.width * 0.42,
                             height: MediaQuery.of(context).size.height * 0.1,
                             child: TextField(
                               controller: textControl,
                               cursorColor: Colors.teal,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 21,
                               ),
                               decoration: const InputDecoration(
@@ -211,28 +211,28 @@ class _ConversationScreenState extends State<ConversationScreen> {
                             //   child: Icon(Icons.mic, size: 20, color: Colors.white),
                             // ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 0.2,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.attachment,
                             color: Colors.grey,
                             size: 23,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
-                          Icon(Icons.currency_rupee,
+                          const Icon(Icons.currency_rupee,
                               color: Colors.grey, size: 23),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           textControl.text.trim() == "" ||
                                   textControl.text == null
-                              ? Icon(Icons.camera_alt_rounded,
+                              ? const Icon(Icons.camera_alt_rounded,
                                   color: Colors.grey, size: 23)
                               : Container(),
-                          SizedBox(
+                          const SizedBox(
                             width: 0.2,
                           ),
                         ]),
@@ -251,8 +251,8 @@ class _ConversationScreenState extends State<ConversationScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Color.fromARGB(255, 0, 128, 105),
-        child: Icon(Icons.mic, size: 20, color: Colors.white),
+        backgroundColor: const Color.fromARGB(255, 0, 128, 105),
+        child: const Icon(Icons.mic, size: 20, color: Colors.white),
       ),
     );
   }
