@@ -222,4 +222,57 @@ class Data {
       'true',
     ],
   };
+
+  var personlog = {
+    0: [
+      'Virat',
+      'assets/pictures/personimage1.jpg',
+      '9873567223',
+    ],
+    1: [
+      'John',
+      'assets/pictures/personimage2.jpg',
+      '9884567123',
+    ],
+    2: [
+      'Rita',
+      'assets/pictures/personimage3.jpg',
+      '9052567673',
+    ],
+    3: [
+      'Seeta',
+      'assets/pictures/personimage4.jpg',
+      '9382527123',
+    ],
+    4: [
+      'George',
+      'assets/pictures/personimage1.jpg',
+      '9182567125',
+    ],
+    5: [
+      'Meena',
+      'assets/pictures/personimage5.jpg',
+      '9983467123',
+    ],
+    6: [
+      'college',
+      'assets/pictures/peoplegroup.jpg',
+      '9784567134',
+    ],
+    7: [
+      'Anu',
+      'assets/pictures/personimage4.jpg',
+      '9934567123',
+    ],
+    8: [
+      'Sanju',
+      'assets/pictures/personimage2.jpg',
+      '9784567678',
+    ],
+    9: [
+      'Anju',
+      'assets/pictures/personimage3.jpg',
+      '9784567143',
+    ],
+  };
 }

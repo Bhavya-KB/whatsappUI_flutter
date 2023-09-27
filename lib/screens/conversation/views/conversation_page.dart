@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
+import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/chat/model/chat_tile.dart';
 import 'package:whatsapp/screens/conversation/views/model/conversationbox.dart';
 import 'package:whatsapp/controller/whatsappdatas.dart';
+import 'package:whatsapp/screens/conversation/views/view/personsprofile.dart';
 
 Data data = Data();
 
@@ -27,38 +30,47 @@ class _ConversationScreenState extends State<ConversationScreen> {
           },
           icon: const Icon(Icons.arrow_back),
         ),
-        title: Row(
-          children: [
-            widget.img != null
-                ? CircleAvatar(
-                    radius: 20,
-                    backgroundImage: AssetImage(widget.img),
-                  )
-                : Container(
-                    height: 36,
-                    width: 36,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
+        title: GestureDetector(
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: ((context) => persondetails(
+                        name: widget.name,
+                        img: widget.img,
+                      )))),
+          child: Row(
+            children: [
+              widget.img != null
+                  ? CircleAvatar(
+                      radius: 20,
+                      backgroundImage: AssetImage(widget.img),
+                    )
+                  : Container(
+                      height: 36,
+                      width: 36,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: const Icon(Icons.account_circle,
+                          size: 36, color: Colors.grey),
                     ),
-                    child: const Icon(Icons.account_circle,
-                        size: 36, color: Colors.grey),
+              const SizedBox(
+                width: 8,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
-            const SizedBox(
-              width: 8,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.name,
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
         actions: [
           IconButton(
@@ -73,10 +85,28 @@ class _ConversationScreenState extends State<ConversationScreen> {
                 Icons.call,
                 size: 20,
               )),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          // IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          PopupMenuButton<String>(itemBuilder: (BuildContext context) {
+            return const [
+              PopupMenuItem(
+                  value: " Media,links,and Docs",
+                  child: Text("Media,links,and Docs")),
+              PopupMenuItem(value: "Search", child: Text("Search")),
+              PopupMenuItem(
+                  value: "Disappearing messages",
+                  child: Text("Disappearing messages")),
+              PopupMenuItem(value: " Wallpaper", child: Text("wallpaper")),
+              PopupMenuItem(value: "More", child: Text("More")),
+            ];
+          }),
         ],
       ),
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/pictures/backgroundimage.jpg'),
+              fit: BoxFit.fill),
+        ),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -105,7 +135,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                       bottom: 8.0,
                       right: 6.0,
                     ),
-                    width: MediaQuery.of(context).size.width * 0.79,
+                    width: MediaQuery.of(context).size.width * 0.75,
                     height: MediaQuery.of(context).size.width * 0.15,
                     padding: EdgeInsets.only(
                       right: 10,
@@ -127,19 +157,20 @@ class _ConversationScreenState extends State<ConversationScreen> {
                           ),
                           Container(
                             margin: EdgeInsets.only(top: 3.0),
-                            width: MediaQuery.of(context).size.width * 0.55,
+                            width: MediaQuery.of(context).size.width * 0.42,
                             height: MediaQuery.of(context).size.height * 0.1,
                             child: TextField(
                               controller: textControl,
                               cursorColor: Colors.teal,
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 21,
                               ),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 hintText: "Message",
+                                border: InputBorder.none,
                                 hintStyle: TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ),
@@ -180,30 +211,34 @@ class _ConversationScreenState extends State<ConversationScreen> {
                             //   child: Icon(Icons.mic, size: 20, color: Colors.white),
                             // ),
                           ),
+                          SizedBox(
+                            width: 0.2,
+                          ),
                           Icon(
                             Icons.attachment,
                             color: Colors.grey,
-                            size: 20,
+                            size: 23,
                           ),
                           SizedBox(
-                            height: 16,
+                            width: 5,
+                          ),
+                          Icon(Icons.currency_rupee,
+                              color: Colors.grey, size: 23),
+                          SizedBox(
+                            width: 5,
                           ),
                           textControl.text.trim() == "" ||
                                   textControl.text == null
                               ? Icon(Icons.camera_alt_rounded,
-                                  color: Colors.grey, size: 20)
+                                  color: Colors.grey, size: 23)
                               : Container(),
+                          SizedBox(
+                            width: 0.2,
+                          ),
                         ]),
                   ),
                 ],
               ),
-
-              //         CircleAvatar(backgroundColor:  Color.fromARGB(255, 0, 128, 105),
-              //       radius: 23,
-              //       child: Icon(textControl.text.trim()==""||textControl.text==null?
-              //       Icon(Icons.mic,
-              //       size: 30,
-              //       color: Colors.white),
 
               //         : IconButton( icon: Icon(Icons.send_rounded),
               //         onPressed: (){  data.conversationlist[data.conversationlist.length]=[textControl.text,true];

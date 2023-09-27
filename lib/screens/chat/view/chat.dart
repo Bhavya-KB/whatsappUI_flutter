@@ -74,9 +74,9 @@ class _ChatScreenState extends State<ChatScreen> {
       img: data.chat.values.elementAt(index).elementAt(1),
    msg: data.chat.values.elementAt(index).elementAt(2),
     time: data.chat.values.elementAt(index).elementAt(3),
-    ), 
+    ),
     separatorBuilder: (context,index)=>Separator(), 
-    itemCount: data.chat.length,)
+    itemCount: data.chat.length,),
     );
   }
 }
