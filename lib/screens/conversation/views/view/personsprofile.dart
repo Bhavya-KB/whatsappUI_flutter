@@ -3,15 +3,22 @@ import 'package:whatsapp/controller/whatsappdatas.dart';
 
 Data data = Data();
 
+// ignore: camel_case_types
 class persondetails extends StatefulWidget {
   final String name;
   final String img;
-  const persondetails({super.key, required this.name, required this.img});
+  final String phoneNumber;
+  const persondetails(
+      {super.key,
+      required this.name,
+      required this.img,
+      required this.phoneNumber});
 
   @override
   State<persondetails> createState() => _persondetailsState();
 }
 
+// ignore: camel_case_types
 class _persondetailsState extends State<persondetails> {
   @override
   Widget build(BuildContext context) {
@@ -70,29 +77,6 @@ class _persondetailsState extends State<persondetails> {
             height: 10,
           ),
 
-          // widget.img != null
-          //     ? CircleAvatar(
-          //         radius: 50,
-          //         backgroundImage: AssetImage(widget.img),
-          //       )
-          //     : Container(
-          //         height: 36,
-          //         width: 36,
-          //         decoration: const BoxDecoration(
-          //           shape: BoxShape.circle,
-          //           color: Colors.white,
-          //         ),
-          //         child: const Icon(Icons.account_circle,
-          //             size: 36, color: Colors.grey),
-          //       ),
-          // Container(
-          //   height: MediaQuery.of(context).size.height * 0.2,
-          // margin: EdgeInsets.all(35),
-          // decoration: BoxDecoration(
-
-          //   shape: BoxShape.circle,
-          //   color: Colors.green,
-          // ),
           CircleAvatar(
             radius: 50,
             backgroundImage: AssetImage(widget.img),
@@ -102,82 +86,105 @@ class _persondetailsState extends State<persondetails> {
             height: 10,
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.03,
             width: MediaQuery.of(context).size.width * 1.0,
+            alignment: Alignment.center,
             child: Text(
               widget.name,
               style: const TextStyle(
-                color: Colors.white,
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
-            ),
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.red,
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
-            width: MediaQuery.of(context).size.width * 7.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.blue,
+            height: MediaQuery.of(context).size.height * 0.03,
+            width: MediaQuery.of(context).size.width * 1.0,
+            alignment: Alignment.center,
+            child: Text(
+              widget.phoneNumber,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 15,
+              ),
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width * 0.2,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: const Icon(
-                  Icons.call,
-                  color: Color.fromARGB(255, 0, 128, 105),
-                  size: 30,
-                ),
+              const Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.call,
+                    color: Color.fromARGB(255, 0, 128, 105),
+                    size: 30,
+                  ),
+                  Text(
+                    "call",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 128, 105),
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width * 0.2,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: const Icon(
-                  Icons.video_call_rounded,
-                  color: Color.fromARGB(255, 0, 128, 105),
-                  size: 30,
-                ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width * 0.2,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: const Icon(
-                  Icons.currency_rupee,
-                  color: Color.fromARGB(255, 0, 128, 105),
-                  size: 30,
-                ),
+              const Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.video_call_rounded,
+                    color: Color.fromARGB(255, 0, 128, 105),
+                    size: 30,
+                  ),
+                  Text(
+                    "Video",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 128, 105),
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width * 0.2,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.white,
-                ),
-                child: const Icon(
-                  Icons.search,
-                  color: Color.fromARGB(255, 0, 128, 105),
-                  size: 30,
-                ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+               Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.currency_rupee,
+                    color: Color.fromARGB(255, 0, 128, 105),
+                    size: 30,
+                  ),
+                  Text(
+                    "Pay",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 128, 105),
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
+              ),
+              const Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.search,
+                    color: Color.fromARGB(255, 0, 128, 105),
+                    size: 30,
+                  ),
+                  Text(
+                    "Search",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 128, 105),
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
