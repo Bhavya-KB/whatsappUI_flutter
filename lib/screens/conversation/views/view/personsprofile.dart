@@ -131,7 +131,6 @@ class _persondetailsState extends State<persondetails> {
               ),
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
