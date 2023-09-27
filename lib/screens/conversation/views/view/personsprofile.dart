@@ -76,12 +76,10 @@ class _persondetailsState extends State<persondetails> {
           const SizedBox(
             height: 10,
           ),
-
           CircleAvatar(
             radius: 50,
             backgroundImage: AssetImage(widget.img),
           ),
-
           const SizedBox(
             height: 10,
           ),
@@ -151,11 +149,7 @@ class _persondetailsState extends State<persondetails> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.1,
               ),
-<<<<<<< HEAD
-               Column(
-=======
               const Column(
->>>>>>> f686257bf0c95e681ffd3575114d8ff1a9336904
                 children: <Widget>[
                   Icon(
                     Icons.currency_rupee,
