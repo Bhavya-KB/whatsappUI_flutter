@@ -20,6 +20,7 @@ class persondetails extends StatefulWidget {
 
 // ignore: camel_case_types
 class _persondetailsState extends State<persondetails> {
+  bool selected = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -186,36 +187,340 @@ class _persondetailsState extends State<persondetails> {
               ),
             ],
           ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.2,
+          //   width: MediaQuery.of(context).size.width * 7.0,
+          //   child: ListView(
+          //     children: [
+          //       ListTile(
+          //         leading: Icon(
+          //           Icons.notifications,
+          //           color: Colors.grey,
+          //           size: 20,
+          //         ),
+          //         title: Text(
+          //           "Mute Notification",
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //             fontSize: 16,
+          //           ),
+          //         ),
+          //       ),
+          //       ListTile(
+          //         leading: Icon(
+          //           Icons.music_note,
+          //           color: Colors.grey,
+          //           size: 20,
+          //         ),
+          //         title: Text(
+          //           "Custom Notification",
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //             fontSize: 16,
+          //           ),
+          //         ),
+          //       ),
+          //       ListTile(
+          //         leading: Icon(
+          //           Icons.photo_library,
+          //           color: Colors.grey,
+          //           size: 20,
+          //         ),
+          //         title: Text(
+          //           "Media visibility",
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //             fontSize: 16,
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Divider(
+          //   color: Color.fromARGB(255, 236, 234, 234),
+          //   thickness: 5,
+          // ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.2,
+          //   width: MediaQuery.of(context).size.width * 7.0,
+          //   child: ListView(children: [
+          // ListTile(
+          //   leading: Icon(
+          //     Icons.lock,
+          //     color: Colors.grey,
+          //     size: 20,
+          //   ),
+          //   title: Text(
+          //     "Encryption",
+          //     style: TextStyle(
+          //       color: Colors.black,
+          //       fontSize: 16,
+          //     ),
+          //   ),
+          //   subtitle: Text(
+          //     'Messages and calls are end-to-end encrypted.Tap to verify.',
+          //     style: TextStyle(color: Colors.grey),
+          //   ),
+          // ),
+          //     ListTile(
+          //       leading: Icon(
+          //         Icons.timer,
+          //         color: Colors.grey,
+          //         size: 20,
+          //       ),
+          //       title: Text(
+          //         "Disappearing messages",
+          //         style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //       subtitle: Text(
+          //         'Off',
+          //         style: TextStyle(color: Colors.grey),
+          //       ),
+          //     ),
+          //     ListTile(
+          //       leading: Icon(
+          //         Icons.lock,
+          //         color: Colors.grey,
+          //         size: 20,
+          //       ),
+          //       title: Text(
+          //         "Chat lock",
+          //         style: TextStyle(
+          //           color: Colors.black,
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //   ]),
+          // ),
+          // Divider(
+          //   color: Color.fromARGB(255, 236, 234, 234),
+          //   thickness: 5,
+          // ),
+
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.2,
+          //   width: MediaQuery.of(context).size.width * 7.0,
+          //   child: ListView(children: [
+          //     ListTile(
+          //       leading: Icon(
+          //         Icons.block,
+          //         color: Colors.red,
+          //         size: 20,
+          //       ),
+          //       title: Text(
+          //         "Block",
+          //         style: TextStyle(
+          //           color: Colors.red,
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //     ListTile(
+          //       leading: Icon(
+          //         Icons.thumb_down_sharp,
+          //         color: Colors.red,
+          //         size: 20,
+          //       ),
+          //       title: Text(
+          //         "Report",
+          //         style: TextStyle(
+          //           color: Colors.red,
+          //           fontSize: 16,
+          //         ),
+          //       ),
+          //     ),
+          //   ]),
+          // ),
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.1,
+          //   width: MediaQuery.of(context).size.width * 7.0,
+          //   decoration: const BoxDecoration(
+          //     shape: BoxShape.rectangle,
+          //     color: Colors.deepOrangeAccent,
+          //   ),
+          // ),
+          const SizedBox(
+            height: 30,
+          ),
+          // Switch(
+          //   activeColor: Colors.blue,
+          //   // title: const Text('Mute Notification'),
+          //   value: selected,
+          //   onChanged: (bool? value) {
+          //     setState(() {
+          //       selected = value!;
+          //     });
+          //   },
+          // ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.21,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.yellow,
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    const Expanded(
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.notifications,
+                          color: Colors.grey,
+                          size: 20,
+                        ),
+                        title: Text(
+                          "Mute Notification",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Switch(
+                      activeColor: Colors.blue,
+                      value: selected,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          selected = value ?? false;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+                const ListTile(
+                  leading: Icon(
+                    Icons.music_note,
+                    color: Colors.grey,
+                    size: 20,
+                  ),
+                  title: Text(
+                    "Custom Notification",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                const ListTile(
+                  leading: Icon(
+                    Icons.photo_library,
+                    color: Colors.grey,
+                    size: 20,
+                  ),
+                  title: Text(
+                    "Media visibility",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-          Container(
-            height: MediaQuery.of(context).size.height * 0.1,
-            width: MediaQuery.of(context).size.width * 7.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.cyan,
-            ),
+
+          const Divider(
+            color: Color.fromARGB(255, 236, 234, 234),
+            thickness: 5,
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.indigo,
-            ),
+            child: const Column(children: [
+              ListTile(
+                leading: Icon(
+                  Icons.lock,
+                  color: Colors.grey,
+                  size: 20,
+                ),
+                title: Text(
+                  "Encryption",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  'Messages and calls are end-to-end encrypted.Tap to verify.',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.timer,
+                  color: Colors.grey,
+                  size: 20,
+                ),
+                title: Text(
+                  "Disappearing messages",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  'Off',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.lock,
+                  color: Colors.grey,
+                  size: 20,
+                ),
+                title: Text(
+                  "Chat lock",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            ]),
+          ),
+
+          const Divider(
+            color: Color.fromARGB(255, 236, 234, 234),
+            thickness: 5,
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.2,
             width: MediaQuery.of(context).size.width * 7.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.deepOrangeAccent,
+            child: Column(
+              children: [
+                ListTile(
+                  leading: const Icon(
+                    Icons.block,
+                    color: Colors.red,
+                    size: 20,
+                  ),
+                  title: Text(
+                    "Block  ${widget.name}",
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.thumb_down_sharp,
+                    color: Colors.red,
+                    size: 20,
+                  ),
+                  title: Text(
+                    "Report  ${widget.name}",
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ]),
